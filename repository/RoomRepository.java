@@ -12,6 +12,6 @@ import java.util.List;
 public interface RoomRepository extends JpaRepository<Room, Long> {
 
     List<Room> findByAvailableTrue();
-
+	List<Room> findByAvailableTrueAndLocation(String location);
 	
 }
