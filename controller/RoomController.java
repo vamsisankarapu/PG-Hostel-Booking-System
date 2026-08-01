@@ -50,8 +50,8 @@ public class RoomController {
 
 
     @GetMapping("/rooms")
-    public String viewRooms(Model model) {
-        model.addAttribute("rooms", roomService.getAvailableRooms());
+    public String viewRooms(@RequestParam String location,Model model) {
+        model.addAttribute("rooms", roomService.getAvailableRooms2(location));
         return "rooms2";
     }
 
@@ -82,3 +82,4 @@ public class RoomController {
         return "redirect:/rooms3";
     }
 }
+
