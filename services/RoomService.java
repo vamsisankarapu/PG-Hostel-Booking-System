@@ -32,7 +32,14 @@ public class RoomService {
 
     public List<Room> getAvailableRooms() {
         return roomRepository.findByAvailableTrue();
+    	// return roomRepository.findByAvailableTrueAndLocation(location);
     }
+
+    
+    public List<Room> getAvailableRooms2(String location) {
+        // return roomRepository.findByAvailableTrue();
+     	 return roomRepository.findByAvailableTrueAndLocation(location);
+     }
 
     public Room getRoomById(Long id) {
         Optional<Room> optional = roomRepository.findById(id);
@@ -46,9 +53,5 @@ public class RoomService {
     public void deleteRoom(Long id) {
         roomRepository.deleteById(id);
     }
-
-
-		
-
 		
 	}
