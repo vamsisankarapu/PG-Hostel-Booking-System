@@ -32,6 +32,6 @@ public class HostelController {
         else if(location.equals("Rushikonda"))
         	return "rushikondaresults";
         else
-        return "dwarakanagarresult"; // JSP page to show results
+        return "dwarakanagarresult";
     }
 }
