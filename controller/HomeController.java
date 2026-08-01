@@ -41,5 +41,10 @@ public class HomeController {
     public String vacateRoomPage() {
         return "vacate-room";
     }
+    @GetMapping("/city")
+    public String City() {
+        return "citylist";
+    }
     
 }
+
