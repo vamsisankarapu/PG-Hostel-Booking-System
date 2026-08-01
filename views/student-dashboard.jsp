@@ -1,39 +1,3 @@
-<%-- <%@ page contentType="text/html;charset=UTF-8" language="java" %> --%>
-<!-- <!DOCTYPE html> -->
-<!-- <html> -->
-<!-- <head> -->
-<!--     <title>Student Dashboard</title> -->
-<!--     <link rel="stylesheet" -->
-<!--           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
-<!-- </head> -->
-<!-- <body> -->
-
-<!-- <div class="container mt-5 text-center"> -->
-<!--     <h2>Student Dashboard</h2> -->
-
-<!--     <h4 class="mt-3"> -->
-<%--         Welcome, <%= session.getAttribute("userName") %> --%>
-<!--     </h4> -->
-
-<!--     <div class="mt-4"> -->
-<!--         <a href="rooms" class="btn btn-primary m-2"> -->
-<!--             View Available Rooms -->
-<!--         </a> -->
-
-<!--         <a href="booking-history" class="btn btn-success m-2"> -->
-<!--             Booking History -->
-<!--         </a> -->
-
-<!--         <a href="/" class="btn btn-dark m-2"> -->
-<!--             Logout -->
-<!--         </a> -->
-<!--     </div> -->
-<!-- </div> -->
-
-<!-- </body> -->
-<!-- </html> -->
-
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +39,48 @@
     }
 
     .hero h2 { font-size: 1.8rem; font-weight: 600; margin-bottom: .3rem; }
-    .hero p  { font-size: 14px; opacity: .85; margin: 0; }
+    .hero p  { font-size: 14px; opacity: .85; margin: 0 0 1.5rem; }
+
+    /* Search Bar */
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 50px;
+      padding: 6px 6px 6px 20px;
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .search-box i.fa-location-dot { color: #2563eb; font-size: 15px; margin-right: 10px; }
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: #1e293b;
+      padding: 10px 0;
+      background: transparent;
+    }
+    .search-box input::placeholder { color: #94a3b8; }
+    .search-box button {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 40px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: filter .15s;
+    }
+    .search-box button:hover { filter: brightness(0.93); }
 
     .cards {
       display: grid;
@@ -133,17 +138,36 @@
   <div class="avatar"><i class="fa-solid fa-user-graduate"></i></div>
   <h2>Student Dashboard</h2>
   <p>Welcome back, <strong><%= session.getAttribute("userName") %></strong></p>
+
+  <!-- Location Search -->
+  <form class="search-box" action="searchHostel" method="get">
+    <i class="fa-solid fa-location-dot"></i>
+    <input type="text" name="location" list="locationOptions" placeholder="Search by location" autocomplete="off" required>
+    <datalist id="locationOptions">
+      <option value="Gajuwaka">
+      <option value="Madhuravada">
+      <option value="Rushikonda">
+      <option value="Dwaraka Nagar">
+      <option value="Duvvada">
+    </datalist>
+    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+  </form>
 </section>
 
 <div class="cards">
-  <a href="rooms" class="card-btn">
+ <!--   <a href="rooms" class="card-btn">
     <i class="fa-solid fa-bed" style="color:#2563eb"></i>
     <span>View Available Rooms</span>
   </a>
+  -->
   <a href="booking-history" class="card-btn">
     <i class="fa-solid fa-clock-rotate-left" style="color:#7c3aed"></i>
     <span>Booking History</span>
   </a>
+  
+  <a href="city" class="card-btn">
+  <i class="fa-solid fa-bed" style="color:#2563eb"></i>
+  <span>Select city</span></a>
 </div>
 
 <div class="logout">
