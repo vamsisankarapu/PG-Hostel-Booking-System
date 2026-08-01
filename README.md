@@ -93,9 +93,9 @@ src
  ├── service
  ├── repository
  ├── entity
- ├── dto (if used)
- ├── config (if used)
- └── resources
+ └── webapp
+      └── WEB-INF
+           └── views
 
 Future Enhancements
 
